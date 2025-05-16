@@ -1,0 +1,91 @@
+<?php session_start(); ?>
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Учебное заведение</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <ul class="nav-list">
+                <li><a href="#home" class="nav-link">Главная</a></li>
+                <li><a href="#about" class="nav-link">О нас</a></li>
+                <li><a href="#courses" class="nav-link">Курсы</a></li>
+                <li><a href="#events" class="nav-link">События</a></li>
+                <li><a href="#contacts" class="nav-link">Контакты</a></li>
+                <?php if (isset($_SESSION['user_id'])): ?>
+                    <li><a href="php/profile.php" class="nav-link btn-login">Личный кабинет</a></li>
+                    <li><a href="php/logout.php" class="nav-link">Выход</a></li>
+                <?php else: ?>
+                    <li><a href="php/login.php" class="nav-link btn-login">Вход</a></li>
+                <?php endif; ?>
+                <li class="theme-toggle">
+                    <button id="theme-toggle-btn" class="btn-theme">Темная тема</button>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="home" class="section hero">
+            <h1>Добро пожаловать в наше учебное заведение</h1>
+            <p>Изучайте, развивайтесь, достигайте с нашими курсами и мероприятиями! Мы предлагаем современные образовательные программы, разработанные экспертами.</p>
+            <a href="#courses" class="btn btn-primary">Посмотреть курсы</a>
+        </section>
+        <section id="about" class="section about-section">
+            <div class="about-container">
+                <div class="about-text">
+                    <h2>О нас</h2>
+                    <p>Мы – ведущий образовательный центр, основанный в 2010 году. Наша миссия – предоставлять качественное образование для всех желающих, сочетая современные технологии и проверенные методики. У нас работают лучшие преподаватели с многолетним опытом.</p>
+                </div>
+                <div class="about-grid">
+                    <div class="about-card">
+                        <h3>Наша история</h3>
+                        <p>За 15 лет мы обучили более 10 000 студентов, многие из которых стали успешными профессионалами в своих областях.</p>
+                    </div>
+                    <div class="about-card">
+                        <h3>Наши ценности</h3>
+                        <p>Доступность, качество и инновации – три столпа, на которых строится наша работа.</p>
+                    </div>
+                    <div class="about-card">
+                        <h3>Наша команда</h3>
+                        <p>Наши преподаватели – эксперты с международным признанием, готовые делиться знаниями.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="courses" class="section">
+            <h2>Наши курсы</h2>
+            <p>Мы предлагаем широкий выбор программ для всех уровней подготовки – от начинающих до профессионалов. Выберите подходящий курс и начните учиться уже сегодня!</p>
+            <div class="course-grid">
+                <?php include 'php/courses.php'; ?>
+            </div>
+        </section>
+        <section id="events" class="section">
+            <h2>Предстоящие события</h2>
+            <p>Присоединяйтесь к нашим мероприятиям, чтобы узнать больше о современных образовательных трендах и познакомиться с единомышленниками.</p>
+            <div class="event-grid">
+                <?php include 'php/events.php'; ?>
+            </div>
+        </section>
+        <section id="contacts" class="section">
+            <h2>Свяжитесь с нами</h2>
+            <p>Есть вопросы? Хотите узнать больше о наших программах? Заполните форму ниже, и мы свяжемся с вами в ближайшее время!</p>
+            <div class="contact-info">
+                <p><strong>Телефон:</strong> +7 (495) 123-45-67</p>
+                <p><strong>Email:</strong> info@education-center.ru</p>
+                <p><strong>Адрес:</strong> г. Москва, ул. Ленина, д. 10</p>
+            </div>
+            <?php include 'php/contact_form.php'; ?>
+        </section>
+    </main>
+    <footer class="footer">
+        <p>© 2025 Учебное заведение. Все права защищены.</p>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>
