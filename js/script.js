@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
         link.addEventListener('click', (e) => {
             const href = link.getAttribute('href');
             // Пропускаем ссылки, ведущие на другие страницы
-            if (href.includes('index.html') || href.includes('logout.php') || href.includes('login.php') || href.includes('profile.php')) {
+            if (href.includes('index.html') || href.includes('login.html') || href.includes('profile.html')) {
                 return;
             }
             e.preventDefault();
@@ -14,31 +14,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 targetElement.scrollIntoView({ behavior: 'smooth' });
             }
         });
-    });
-
-    // Обработка удаления курсов через AJAX
-    $('.btn-remove').on('click', function() {
-        const favoriteId = $(this).data('id');
-        if (confirm('Удалить курс из избранного?')) {
-            $.ajax({
-                url: 'remove_favorite.php',
-                type: 'POST',
-                data: { id: favoriteId },
-                success: function(response) {
-                    if (response.success) {
-                        $(`[data-id="${favoriteId}"]`).remove();
-                        if ($('#favorites-grid').children().length === 0) {
-                            $('#favorites-grid').html('<p class="empty-message">Ты пока не добавил курсы в избранное. Перейди в раздел "Курсы" и выбери что-то интересное!</p>');
-                        }
-                    } else {
-                        alert('Ошибка при удалении: ' + response.message);
-                    }
-                },
-                error: function() {
-                    alert('Произошла ошибка при удалении.');
-                }
-            });
-        }
     });
 
     // Переключение темы
