@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Личный кабинет</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <ul class="nav-list">
+                <li><a href="index.html" class="nav-link">Вернуться на главную</a></li>
+                <li><a href="login.html" class="nav-link">Выход</a></li>
+                <li class="theme-toggle">
+                    <button id="theme-toggle-btn" class="btn-theme">Тёмная тема</button>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="section profile-section">
+            <h2 class="profile-title">Твой личный кабинет</h2>
+            <div class="profile-card">
+                <div class="profile-header">
+                    <h3>Привет, пользователь! 🚀</h3>
+                    <p>Управляй своим профилем и следи за избранным.</p>
+                </div>
+                <div class="profile-details">
+                    <p><strong>Email:</strong> example@school3zubalov.ru</p>
+                </div>
+                <h3 class="section-subtitle">Редактировать профиль</h3>
+                <form class="profile-form">
+                    <input type="text" name="username" value="Пользователь" required placeholder="Имя пользователя">
+                    <input type="email" name="email" value="example@school3zubalov.ru" required placeholder="Email">
+                    <button type="submit" class="btn btn-primary btn-update">Сохранить изменения</button>
+                </form>
+                <p style="color: #EF4444; margin-top: 1rem;">Редактирование профиля временно недоступно. Свяжитесь с администрацией.</p>
+            </div>
+            <div class="favorites-section">
+                <h3 class="section-subtitle">Избранные курсы 🌟</h3>
+                <p class="empty-message">Ты пока не добавил курсы в избранное. Перейди в раздел "Курсы" и выбери что-то интересное!</p>
+            </div>
+        </section>
+    </main>
+    <footer class="footer">
+        <p>© 2025 МБОУ СОШ №3 им. Ф.А. Зубалова. Все права защищены.</p>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>
