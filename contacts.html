@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Контакты - МБОУ СОШ №3 им. Ф.А. Зубалова</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <ul class="nav-list">
+                <li><a href="index.html" class="nav-link">Главная</a></li>
+                <li><a href="about.html" class="nav-link">О нас</a></li>
+                <li><a href="courses.html" class="nav-link">Курсы</a></li>
+                <li><a href="events.html" class="nav-link">События</a></li>
+                <li><a href="contacts.html" class="nav-link active">Контакты</a></li>
+                <li><a href="login.html" class="nav-link btn-login">Вход</a></li>
+                <li class="theme-toggle">
+                    <button id="theme-toggle-btn" class="btn-theme">Темная тема</button>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="section">
+            <h2>Свяжитесь с нами</h2>
+            <p>Есть вопросы? Хотите узнать больше о наших программах? Заполните форму ниже, и мы свяжемся с вами в ближайшее время!</p>
+            <div class="contact-info">
+                <p><strong>Телефон:</strong> +7 (495) 123-45-67</p>
+                <p><strong>Email:</strong> <a href="mailto:info@school3zubalov.ru">info@school3zubalov.ru</a></p>
+                <p><strong>Адрес:</strong> 357073, Ставропольский край, Андроповский район, с. Красоярское, пер. Почтовый, д.2</p>
+            </div>
+            <form class="contact-form">
+                <textarea name="message" required placeholder="Ваше сообщение"></textarea>
+                <button type="submit" class="btn btn-primary">Отправить</button>
+            </form>
+        </section>
+    </main>
+    <footer class="footer">
+        <p>© 2025 МБОУ СОШ №3 им. Ф.А. Зубалова. Все права защищены.</p>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>
