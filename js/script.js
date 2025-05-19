@@ -1,33 +1,42 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Плавная прокрутка для навигации, исключая переходы на другие страницы
-    document.querySelectorAll('.nav-link').forEach(link => {
-        link.addEventListener('click', (e) => {
-            const href = link.getAttribute('href');
-            // Пропускаем ссылки, ведущие на другие страницы
-            if (href.includes('index.html') || href.includes('login.html') || href.includes('profile.html')) {
-                return;
-            }
-            e.preventDefault();
-            const targetId = href.substring(1);
-            const targetElement = document.getElementById(targetId);
-            if (targetElement) {
-                targetElement.scrollIntoView({ behavior: 'smooth' });
-            }
+    const themeToggleBtn = document.getElementById('theme-toggle-btn');
+    const body = document.body;
+
+    // Проверка сохранённой темы
+    if (localStorage.getItem('theme') === 'dark') {
+        body.classList.add('dark-theme');
+        themeToggleBtn.textContent = 'Светлая тема';
+    }
+
+    // Переключение темы
+    themeToggleBtn.addEventListener('click', () => {
+        body.classList.toggle('dark-theme');
+        if (body.classList.contains('dark-theme')) {
+            themeToggleBtn.textContent = 'Светлая тема';
+            localStorage.setItem('theme', 'dark');
+        } else {
+            theme  themeToggleBtn.textContent = 'Темная тема';
+            localStorage.setItem('theme', 'light');
+        }
+    });
+
+    // Дополнительная функциональность (например, для кнопок "Добавить в избранное")
+    const courseButtons = document.querySelectorAll('.course-button');
+    courseButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            alert('Курс добавлен в избранное!');
+            // Здесь можно добавить логику для сохранения избранных курсов
         });
     });
 
-    // Переключение темы
-    $('#theme-toggle-btn').on('click', function() {
-        $('body').toggleClass('dark-theme');
-        const isDark = $('body').hasClass('dark-theme');
-        $(this).text(isDark ? 'Светлая тема' : 'Темная тема');
-        localStorage.setItem('theme', isDark ? 'dark' : 'light');
-    });
-
-    // Загрузка сохранённой темы
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme === 'dark') {
-        $('body').addClass('dark-theme');
-        $('#theme-toggle-btn').text('Светлая тема');
+    // Обработка отправки формы
+    const contactForm = document.querySelector('.contact-form');
+    if (contactForm) {
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Сообщение отправлено!');
+            contactForm.reset();
+            // Здесь можно добавить отправку формы на сервер
+        });
     }
 });
